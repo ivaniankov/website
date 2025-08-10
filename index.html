@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ivan Iankov</title>
+  <meta name="description" content="Personal site of Ivan Iankov." />
+  <meta name="theme-color" content="#0b0e14" />
+  <style>
+    :root{
+      --bg:#0b0e14; --card:#0f1320; --text:#e8eef5; --muted:#96a4b7; --accent:#6aa6ff; --border:#223047;
+      --glow: rgba(106,166,255,.35);
+    }
+    @media (prefers-color-scheme: light){
+      :root{ --bg:#f6f8fc; --card:#ffffff; --text:#0b1220; --muted:#5a6677; --accent:#2d6cff; --border:#e8ecf3; --glow: rgba(45,108,255,.20); }
+    }
+    *{ box-sizing: border-box }
+    html,body{ height:100% }
+    body{ margin:0; font-family: ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; color:var(--text); background: var(--bg); overflow:hidden; }
+
+    .bg{ position:fixed; inset:-20vmax; filter: blur(60px); z-index:-1; opacity:.9;
+      background:
+        radial-gradient(40vmax 40vmax at 15% 20%, #2a3e6b66, transparent 60%),
+        radial-gradient(35vmax 35vmax at 85% 25%, #1b6b7c66, transparent 60%),
+        radial-gradient(45vmax 45vmax at 50% 90%, #5b3ea866, transparent 60%);
+      animation: float 24s ease-in-out infinite alternate; }
+    @keyframes float{ 0%{ transform: translate3d(0,0,0) scale(1) } 100%{ transform: translate3d(2rem,-1.5rem,0) scale(1.05) } }
+    @media (prefers-reduced-motion: reduce){ .bg{ animation:none } }
+
+    .wrap{ height:100%; width:100%; display:grid; place-items:center; padding: clamp(16px, 3vw, 32px); }
+    .card{ width:min(880px, 92vw); background: linear-gradient(180deg, var(--card), color-mix(in oklab, var(--card), transparent 15%));
+      border:1px solid var(--border); border-radius:24px; box-shadow: 0 30px 80px rgba(0,0,0,.35);
+      padding: clamp(24px, 4vw, 48px); text-align:center; }
+
+    .logo-wrap{
+      width: clamp(96px, 18vw, 160px); height: clamp(96px, 18vw, 160px);
+      margin-inline:auto; border-radius:24px; border:1px solid var(--border);
+      background: linear-gradient(180deg, #10192b, #0c1322);
+      display:grid; place-items:center; overflow:hidden; position:relative;
+      box-shadow: 0 0 0 0 var(--glow);
+    }
+    .logo-img{ width:80%; height:80%; object-fit: contain; }
+    .logo-fallback{
+      font-weight:900; letter-spacing:.04em; font-size: clamp(30px, 6vw, 48px); opacity:.9;
+      background: linear-gradient(90deg, var(--accent), #9fd0ff);
+      -webkit-background-clip:text; background-clip:text; color: transparent; user-select: none;
+    }
+
+    h1{ margin: clamp(14px, 3vw, 24px) 0 0; font-size: clamp(32px, 8vw, 96px); line-height: .95; letter-spacing: .02em; font-weight: 900; text-wrap: balance; }
+    .tag{ margin-top: 10px; color: var(--muted); font-size: clamp(12px, 1.8vw, 14px); }
+  </style>
+</head>
+<body>
+  <div class="bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <main class="card" role="main" aria-label="Personal landing for Ivan Iankov">
+      <div class="logo-wrap">
+        <!-- Try PNG first, then SVG; hide if both 404 and show fallback monogram -->
+        <img id="logo" class="logo-img" src="logo.png" alt="Logo" onerror="this.onerror=null; this.src='logo.svg'; this.onerror=()=>{ this.style.display='none'; document.getElementById('fallback').style.display='block'; }">
+        <div id="fallback" class="logo-fallback" style="display:none">II</div>
+      </div>
+
+      <h1>Ivan Iankov</h1>
+      <div class="tag">—</div>
+    </main>
+  </div>
+</body>
+</html>
