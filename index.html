@@ -38,14 +38,19 @@
       padding: 2rem;
       transform: translateY(var(--lift));
     }
-    .hero h1{
-      margin: 0;
-      font-size: clamp(2.5rem, 8vw, 5rem);
-      letter-spacing: .02em;
-      font-weight: 700;
-      line-height: 1.1;
-      text-shadow: 0 2px 18px rgba(0,0,0,.35);
-    }
+  
+    .hero h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0.6)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
 
     /* Bottom links */
     .footer{
