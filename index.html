@@ -12,6 +12,8 @@
       --accent: #ffffff;
       --overlay: rgba(0,0,0,.45); /* tweak to make the photo lighter/darker */
     }
+    @media (max-width: 600px) { :root { --lift: -3vh; } }  
+
     * { box-sizing: border-box; }
     html, body { height: 100%; margin: 0; }
     body {
@@ -77,11 +79,10 @@
     .icon {
       width: 18px; height: 18px; display: inline-block;
     }
-    .hero { transform: translateY(-600px); }
-
     @media (prefers-reduced-motion: reduce) {
       .footer a { transition: none; }
     }
+    .hero { transform: translateY(var(--lift)); }
   </style>
 </head>
 <body>
